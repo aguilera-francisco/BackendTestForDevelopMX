@@ -57,10 +57,10 @@ Once the project is running, you can check the swagger documentation going to th
 #### Query Parameters
 
 -   #### sort
-    **Allowed values:** `address` `date`
+    **Allowed values:** `address` `date`  
     **Default value:** `address`
 -   #### order
-    **Allowed values:** `asc` `desc`
+    **Allowed values:** `asc` `desc`  
     **Default value:** `asc`
 
 #### Response
