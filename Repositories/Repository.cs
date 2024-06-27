@@ -11,11 +11,7 @@ namespace BackendTest.Repositories
         {
             _httpClient = new HttpClient();
         }
-
-
-        async Task<Customer?> IRepository<Customer>.Get()
-        {
-            
+        async private Task<string?> GetAPIData() {
             string url = "https://examentecnico.azurewebsites.net/v3/api/Test/Customer";
             string token = "Y2hyaXN0b3BoZXJAZGV2ZWxvcC5teDpUZXN0aW5nRGV2ZWxvcDEyM0AuLi4=";
             _httpClient.DefaultRequestHeaders.Add("Device", "POSTMAN");
@@ -23,8 +19,16 @@ namespace BackendTest.Repositories
             _httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {token}");
             var result = await _httpClient.GetAsync(url);
 
-            var body = await result.Content.ReadAsStringAsync();
-            body = body.Trim('"').Replace("\\\"", "\"").Replace("\\r\\n", "");
+            return await result.Content.ReadAsStringAsync();
+        }
+        private string FormatResponse(string body) {
+            return body.Trim('"').Replace("\\\"", "\"").Replace("\\r\\n", "");
+        }
+
+        async Task<Customer?> IRepository<Customer>.Get()
+        {
+            var body = await GetAPIData();
+            body = FormatResponse(body);
 
             var options = new JsonSerializerOptions
             {
