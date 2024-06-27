@@ -7,13 +7,15 @@ namespace BackendTest.Repositories
     {
         private HttpClient _httpClient;
         private Customer? _customers;
-        public Repository()
+        private readonly IConfiguration _configuration;
+        public Repository(IConfiguration configuration)
         {
             _httpClient = new HttpClient();
+            _configuration = configuration;
         }
         async private Task<string?> GetAPIData() {
-            string url = "https://examentecnico.azurewebsites.net/v3/api/Test/Customer";
-            string token = "Y2hyaXN0b3BoZXJAZGV2ZWxvcC5teDpUZXN0aW5nRGV2ZWxvcDEyM0AuLi4=";
+            string url = _configuration["url"]; 
+            string token = _configuration["token"]; 
             _httpClient.DefaultRequestHeaders.Add("Device", "POSTMAN");
             _httpClient.DefaultRequestHeaders.Add("Version", "2.0.6.0");
             _httpClient.DefaultRequestHeaders.Add("Authorization", $"Basic {token}");

@@ -20,7 +20,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IRepository<Customer>, Repository>();
 builder.Services.AddScoped<ICustomerService<CustomerDTO, AddressDTO>, CustomerService>(); 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
