@@ -52,7 +52,7 @@ Once the project is running, you can check the swagger documentation going to th
 
 #### Example Request
 
-    curl --location 'https://localhost:7049/api/Customer/Addresses/OrderedAddresses?sort=date&order=desc'
+    curl --location 'https://localhost:7049/api/Customer/Addresses?sort=date&order=desc'
 
 #### Query Parameters
 
