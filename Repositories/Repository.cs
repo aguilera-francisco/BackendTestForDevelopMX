@@ -34,15 +34,13 @@ namespace BackendTest.Repositories
                 _customers = JsonSerializer.Deserialize<Customer>(body, options);
             }
             catch (Exception ex) {
+                Console.WriteLine(ex);
                 return null;
             }
             return _customers;
         }
 
-        Task<Customer> IRepository<Customer>.GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+
         
     }
 }

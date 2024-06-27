@@ -2,7 +2,7 @@
 {
     public class Customer
     {
-        public string AuthType { get; set; }
+        public string? AuthType { get; set; }
         public DateTime? CreationDate { get; set; }
         public string? CustomerId { get; set; }
         public string? CustomerNo { get; set; }

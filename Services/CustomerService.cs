@@ -14,12 +14,12 @@ namespace BackendTest.Services
         async public Task<CustomerDTO?> BuildCustomer()
         {
 
-            Customer customer = await _repository.Get();
+            var customer = await _repository.Get();
             if (customer == null)
             {
                 return null;
             }
-            var addressesDTO = customer.Addresses.Select(a => new AddressDTO
+            var addressesDTO = customer.Addresses?.Select(a => new AddressDTO
             {
                 Address1 = a.Address1,
                 Address2 = a.Address2,
@@ -33,7 +33,6 @@ namespace BackendTest.Services
                 PostalCode = a.PostalCode,
                 Preferred = a.Preferred,
                 StateCode = a.StateCode
-
             }).ToList<AddressDTO>();
 
             return new CustomerDTO
@@ -42,6 +41,9 @@ namespace BackendTest.Services
                 Email = customer.Email,
                 PhoneHome = customer.PhoneHome,
                 PhoneMobile = customer.PhoneMobile,
+                Birthday = customer.Birthday,
+                FirstName = customer.FirstName,
+                Lastname = customer.LastName,
                 Addresses = addressesDTO,
             };
         }

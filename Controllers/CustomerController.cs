@@ -26,13 +26,13 @@ namespace BackendTest.Controllers
             return Ok(customer);
         }
 
-        [HttpGet("Addresses/OrderedAddresses")]
+        [HttpGet("Addresses")]
         async public Task<ActionResult<List<AddressDTO>>> GetOrderedAddresses(string sort = "address", string order = "asc") {
             var addresses = await _customerService.GetAddresses(sort, order); 
             return Ok(addresses);
         }
 
-        [HttpGet("Addresses/PreferredAddress")]
+        [HttpGet("Addresses/Preferred")]
         async public Task<ActionResult<AddressDTO>> GetPreferredAddress() { 
             var address = await _customerService.GetPreferredAddress();
             if (address == null) {
@@ -49,6 +49,7 @@ namespace BackendTest.Controllers
             if (addresses == null) { 
                 return BadRequest();
             }
+            if(addresses.Count == 0) { return NotFound(); }
             return Ok(addresses);
         }
         

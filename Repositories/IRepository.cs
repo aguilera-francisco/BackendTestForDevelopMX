@@ -2,10 +2,6 @@
 {
     public interface IRepository<TEntity>
     {
-        Task<TEntity> Get();
-
-        Task<TEntity> GetById(int id);
-
-
+        Task<TEntity?> Get();
     }
 }

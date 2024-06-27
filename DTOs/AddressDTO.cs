@@ -2,7 +2,7 @@
 {
     public class AddressDTO
     {
-        public string AddressId { get; set; }
+        public string? AddressId { get; set; }
         public string? Address1 { get; set; }
         public string? Address2 { get; set; }
         public string? C_Street_Number { get; set; }
