@@ -22,29 +22,29 @@ Once the project is running, you can check the swagger documentation going to th
 
 ```javascript
 {
-	  "customerId": "string",
-	  "email": "string",
-	  "phoneHome": "string",
-	  "phoneMobile": "string",
-	  "addresses": [
-			{
-				  "addressId": "string",
-				  "address1": "string",
-				  "address2": "string",
-				  "c_Street_Number": "string",
-				  "c_BuildingNumber": "string",
-				  "postalCode": "string",
-				  "city": "string",
-				  "stateCode": "string",
-				  "countryCode": "string",
-				  "creationDate": "2024-06-27T14:10:54.569Z",
-				  "phone": "string",
-				  "preferred": true
-			}
-	  ],
-	  "birthday": "2024-06-27T14:10:54.569Z",
-	  "firstName": "string",
-	  "lastname": "string"
+    "customerId": "string",
+    "email": "string",
+    "phoneHome": "string",
+    "phoneMobile": "string",
+    "addresses": [
+        {
+            "addressId": "string",
+            "address1": "string",
+            "address2": "string",
+            "c_Street_Number": "string",
+            "c_BuildingNumber": "string",
+            "postalCode": "string",
+            "city": "string",
+            "stateCode": "string",
+            "countryCode": "string",
+            "creationDate": "2024-06-27T14:10:54.569Z",
+            "phone": "string",
+            "preferred": true
+        }
+    ],
+    "birthday": "2024-06-27T14:10:54.569Z",
+    "firstName": "string",
+    "lastname": "string"
 }
 ```
 
@@ -98,18 +98,18 @@ Once the project is running, you can check the swagger documentation going to th
 
 ```javascript
 {
-	  "addressId": "string",
-	  "address1": "string",
-	  "address2": "string",
-	  "c_Street_Number": "string",
-	  "c_BuildingNumber": "string",
-	  "postalCode": "string",
-	  "city": "string",
-	  "stateCode": "string",
-	  "countryCode": "string",
-	  "creationDate": "2024-06-27T14:33:09.234Z",
-	  "phone": "string",
-	  "preferred": true
+    "addressId": "string",
+    "address1": "string",
+    "address2": "string",
+    "c_Street_Number": "string",
+    "c_BuildingNumber": "string",
+    "postalCode": "string",
+    "city": "string",
+    "stateCode": "string",
+    "countryCode": "string",
+    "creationDate": "2024-06-27T14:33:09.234Z",
+    "phone": "string",
+    "preferred": true
 }
 ```
 
