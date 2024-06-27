@@ -1,5 +1,6 @@
 ﻿using BackendTest.DTOs;
 using BackendTest.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -11,9 +12,11 @@ namespace BackendTest.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        ICustomerService<CustomerDTO, AddressDTO> _customerService;
-        public CustomerController(ICustomerService<CustomerDTO, AddressDTO> customerService) {
+        private ICustomerService<CustomerDTO, AddressDTO> _customerService;
+        private IValidator<string> _postalCodeValidator;
+        public CustomerController(ICustomerService<CustomerDTO, AddressDTO> customerService, IValidator<string> postalCodeValidator) {
             _customerService = customerService;
+            _postalCodeValidator = postalCodeValidator;
         }
 
         [HttpGet]
@@ -44,7 +47,10 @@ namespace BackendTest.Controllers
 
         [HttpGet("Addresses/PostalCode/{postalCode}")]
         async public Task<ActionResult<List<AddressDTO>>> GetAddressesByPostalCode(string postalCode) {
-
+            var pcValidationResult = await _postalCodeValidator.ValidateAsync(postalCode);
+            if (!pcValidationResult.IsValid) {
+                return BadRequest(pcValidationResult.Errors);
+            }
             var addresses = await _customerService.FindAddressByPostalCode(postalCode);
             if (addresses == null) { 
                 return BadRequest();
