@@ -4,9 +4,11 @@ This is a project running on .Net 6 and ASP.net core, intended to prove my poten
 
 ## Considerations
 
+To go to the Postman collection, click on the following link: https://www.postman.com/aguilera-jf6/workspace/backend-test/collection/24362167-c789a211-0cb7-4b4f-8756-324997dc7719
+
 In order to get this project working, it is mandatory to have access to the following link:
 https://examentecnico.azurewebsites.net/v3/api/Test/Customer, as it is the data source used.
-Once the project is running, you can check the swagger documentation going to the `/swagger/index.html` enpoint
+Once the project is running, you can check the swagger documentation going to the `/swagger/index.html` enpoint.
 
 ## /API Endpoints
 
