@@ -87,17 +87,6 @@ namespace BackendTest.Services
                                     select a;
                     }
                     break;
-                    //default:
-                    //    addresses = from a in customer.addresses
-                    //                orderby a.address1 ascending
-                    //                select a;
-                    //    if (order.tolower().equals("desc"))
-                    //    {
-                    //        addresses = from a in customer.addresses
-                    //                    orderby a.address1 descending
-                    //                    select a;
-                    //    }
-                    //    break;
 
 
             }
