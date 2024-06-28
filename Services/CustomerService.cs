@@ -51,8 +51,10 @@ namespace BackendTest.Services
         {
             return await BuildCustomer();
         }
-        async public Task<List<AddressDTO>?> GetAddresses(string sort, string order)
+        async public Task<List<AddressDTO>?> GetAddresses(string? sort, string? order)
         {
+            if (sort == null) { sort = "asc"; }
+            if (order == null) { order = "address"; }
             var customer = await BuildCustomer();
             if (customer == null)
             {
@@ -62,6 +64,7 @@ namespace BackendTest.Services
             switch (sort.ToLower())
             {
                 case "address":
+                default:
                     addresses = from a in customer.Addresses
                                 orderby a.Address1 ascending
                                 select a;
@@ -84,6 +87,18 @@ namespace BackendTest.Services
                                     select a;
                     }
                     break;
+                    //default:
+                    //    addresses = from a in customer.addresses
+                    //                orderby a.address1 ascending
+                    //                select a;
+                    //    if (order.tolower().equals("desc"))
+                    //    {
+                    //        addresses = from a in customer.addresses
+                    //                    orderby a.address1 descending
+                    //                    select a;
+                    //    }
+                    //    break;
+
 
             }
             return addresses?.ToList() ?? null;
